@@ -4,10 +4,12 @@ import https from 'https';
 const worldRecordDataPath = 'world-records.json';
 const updatePeriodSec = 120; // Update levels once every two minutes
 
+console.log('Starting SMM2 World Record Logger...');
+
 // Load course IDs and current world record data
 const courseIds = loadCourseIds();
 const worldRecords = loadWorldRecords();
-console.log(worldRecords);
+console.log('Loaded course IDs and world record data.');
 
 const update = async () => {
 	const startTime = Date.now();
@@ -19,7 +21,6 @@ const update = async () => {
 	saveJsonToFile(worldRecordDataPath, worldRecords);
 
 	console.log('Saved new world records.');
-	console.log(worldRecords);
 
 	const timeTaken = Date.now() - startTime;
 
@@ -145,7 +146,6 @@ function downloadJsonFromUrl(url) {
 	const maxTries = 10;
 	const tryPeriodSec = 20;
 
-	console.log(`Downloading ${url}`);
 	return new Promise(async (resolve, reject) => {
 		for (let i = 0; i < maxTries; i++) {
 			https.get(url, response => {
