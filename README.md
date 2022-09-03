@@ -1,4 +1,4 @@
-# SMM2 World Record Updater
+# SMM2 World Record Logger
 
 This is a simple tool that tracks the world record history of a set of Super Mario Maker 2 levels as they update in real time.
 
